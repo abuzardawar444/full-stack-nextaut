@@ -12,7 +12,6 @@ import {
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/navbar";
 import { useEffect, useState } from "react";
 import Particles from "@/components/particles";
 
@@ -29,7 +28,7 @@ const FeaturesPage = () => {
       setActiveBackground((prev) => (prev + 1) % backgrounds.length);
     }, 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   const features = [
     {
@@ -70,13 +69,13 @@ const FeaturesPage = () => {
       highlight: true,
     },
     {
-      icon: <Globe className="w-8 h-8" />,
+      icon: <Globe className="size-8" />,
       title: "Global Infrastructure",
       description: "Data centers in 12 regions worldwide",
       highlight: false,
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Users className="size-8" />,
       title: "Team Collaboration",
       description: "Built-in tools for seamless teamwork",
       highlight: false,
@@ -134,8 +133,9 @@ const FeaturesPage = () => {
           </h1>
 
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Our platform provides all the tools you need to succeed in today's
-            fast-paced digital world. Explore the features that set us apart.
+            Our platform provides all the tools you need to succeed in
+            today&apos;s fast-paced digital world. Explore the features that set
+            us apart.
           </p>
         </motion.section>
 

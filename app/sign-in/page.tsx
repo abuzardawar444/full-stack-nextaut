@@ -42,7 +42,7 @@ const SignIn = () => {
       setActiveBackground((prev) => (prev + 1) % backgrounds.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

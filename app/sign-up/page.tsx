@@ -46,7 +46,7 @@ const SignUp = () => {
       setActiveBackground((prev) => (prev + 1) % backgrounds.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,6 +77,7 @@ const SignUp = () => {
         setError(data.message || "Something went wrong");
       }
     } catch (err) {
+      console.log(err);
       setError("Network error - please try again");
     } finally {
       setPending(false);

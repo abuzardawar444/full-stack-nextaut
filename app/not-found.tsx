@@ -20,7 +20,7 @@ const NotFoundPage = () => {
       setActiveBackground((prev) => (prev + 1) % backgrounds.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden p-4">
@@ -91,7 +91,8 @@ const NotFoundPage = () => {
               Page Not Found
             </h2>
             <p className="text-white/80 max-w-md mx-auto">
-              Oops! The page you're looking for doesn't exist or has been moved.
+              Oops! The page you&apos;re looking for doesn&apos;t exist or has
+              been moved.
             </p>
           </motion.div>
 
@@ -116,7 +117,7 @@ const NotFoundPage = () => {
                 size="lg"
                 className="w-full py-6 rounded-xl bg-white/5 border-white/20 hover:bg-white/10 text-white font-medium transition-all duration-300"
               >
-                <Compass className="w-5 h-5 mr-2" />
+                <Compass className="size-5 mr-2" />
                 Browse Docs
               </Button>
             </Link>

@@ -1,16 +1,7 @@
 "use client";
-
-import Navbar from "@/components/navbar";
 import { SessionProvider } from "next-auth/react";
 import { motion } from "framer-motion";
-import {
-  Rocket,
-  Sparkles,
-  Shield,
-  BarChart2,
-  Settings,
-  Users,
-} from "lucide-react";
+import { Sparkles, Shield, BarChart2, Settings, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import Particles from "@/components/particles";
 import { Button } from "@/components/ui/button";
@@ -28,11 +19,11 @@ const HomePage = () => {
       setActiveBackground((prev) => (prev + 1) % backgrounds.length);
     }, 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   const features = [
     {
-      icon: <BarChart2 className="w-8 h-8" />,
+      icon: <BarChart2 className="size-8" />,
       title: "Advanced Analytics",
       description: "Track your performance with real-time data visualization",
     },

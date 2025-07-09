@@ -22,6 +22,7 @@ const handler = NextAuth({
         password: {},
       },
       async authorize(credentials, req) {
+        console.log(req);
         const { email, password } = credentials || {};
         if (!email || !password) {
           throw new Error("Email and password are required");
@@ -58,6 +59,7 @@ const handler = NextAuth({
         if (!user) {
           await prisma.user.create({
             data: {
+              id: (profile as any).id || "",
               name: profile.name || "",
               email: profile.email || "",
               image: profile.image || "",
@@ -76,10 +78,12 @@ const handler = NextAuth({
     async session({ session, token }) {
       if (token) {
         session.user = {
+          ...(session.user || {}),
+          id: token.id,
           email: token.email,
           name: token.name,
           image: token.picture,
-        };
+        } as typeof session.user & { id?: string };
       }
       return session;
     },
