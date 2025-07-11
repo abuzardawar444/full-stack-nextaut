@@ -173,7 +173,7 @@ const Dashboard = () => {
         </div>
 
         {/* Sidebar */}
-        <div className="fixed inset-y-0 left-0 w-64 p-4 hidden md:block">
+        <div className="fixed inset-y-0 left-0 w-64 p-4 hidden md:block mt-14">
           <motion.div
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
